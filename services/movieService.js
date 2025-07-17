@@ -1,4 +1,8 @@
-const { movie: movieModel, watchlist: watchlistModel } = require("../models");
+const {
+  movie: movieModel,
+  watchlist: watchlistModel,
+  wishlist: wishlistModel,
+} = require("../models");
 const axios = require("axios");
 require("dotenv").config();
 
@@ -42,7 +46,7 @@ const fetchMovies = async (query) => {
 
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=Inception&api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}`
     );
 
     const movies = await Promise.all(
@@ -159,4 +163,35 @@ const addToWatchlist = async (movieId) => {
   }
 };
 
-module.exports = { fetchMovies, movieExistsInDB, addToWatchlist };
+const addToWishlist = async (movieId) => {
+  try {
+    let movie = await movieExistsInDB(movieId);
+
+    if (!movie) {
+      const movieData = await fetchMovieAndCastDetails(movieId);
+      movie = await movieModel.create(movieData);
+    }
+
+    const existingWishlistEntry = await wishlistModel.findOne({
+      where: { movieId: movie.id },
+    });
+
+    if (existingWishlistEntry) {
+      const error = new Error("Movie is already in the wishlist.");
+      error.status = 409;
+      error.customMessage = "Conflict";
+      throw error;
+    }
+
+    return await wishlistModel.create({ movieId: movie.id });
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = {
+  fetchMovies,
+  movieExistsInDB,
+  addToWatchlist,
+  addToWishlist,
+};

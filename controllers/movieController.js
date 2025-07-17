@@ -2,6 +2,7 @@ const {
   fetchMovies,
   movieExistsInDB,
   addToWatchlist,
+  addToWishlist,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -28,6 +29,25 @@ const saveMovieToWatchlist = async (req, res) => {
   try {
     const watchlistEntry = await addToWatchlist(movieId);
     return res.status(201).json({
+      message: "Movie added to watchlist successfully.",
+    });
+  } catch (error) {
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
+const saveMovieToWishlist = async (req, res) => {
+  const { movieId } = req.body;
+  if (!movieId)
+    return res.status(400).json({ message: "Movie ID is required." });
+
+  try {
+    const wishlistEntry = await addToWishlist(movieId);
+    return res.status(201).json({
       message: "Movie added to wishlist successfully.",
     });
   } catch (error) {
@@ -39,4 +59,4 @@ const saveMovieToWatchlist = async (req, res) => {
   }
 };
 
-module.exports = { searchMovies, saveMovieToWatchlist };
+module.exports = { searchMovies, saveMovieToWatchlist, saveMovieToWishlist };

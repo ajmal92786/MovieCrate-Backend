@@ -2,6 +2,8 @@ const {
   movie: movieModel,
   watchlist: watchlistModel,
   wishlist: wishlistModel,
+  curatedList: curatedListModel,
+  curatedListItem: curatedListItemModel,
 } = require("../models");
 const axios = require("axios");
 require("dotenv").config();
@@ -189,9 +191,50 @@ const addToWishlist = async (movieId) => {
   }
 };
 
+const addToCuratedlist = async (movieId, curatedListId) => {
+  try {
+    // Check if movie exists in DB or fetch from TMDB
+    let movie = await movieExistsInDB(movieId);
+    if (!movie) {
+      const movieData = await fetchMovieAndCastDetails(movieId);
+      movie = await movieModel.create(movieData);
+    }
+
+    // Check if curated list exists
+    const curatedList = await curatedListModel.findByPk(curatedListId);
+    if (!curatedList) {
+      const error = new Error("Curated list does not exist.");
+      error.status = 404;
+      error.customMessage = "Not Found";
+      throw error;
+    }
+
+    // Prevent duplicate movie entry in curated list
+    const existingItem = await curatedListItemModel.findOne({
+      where: { movieId: movie.id, curatedListId },
+    });
+
+    if (existingItem) {
+      const error = new Error("Movie is already in the curated list.");
+      error.status = 409;
+      error.customMessage = "Conflict";
+      throw error;
+    }
+
+    // Create entry
+    return await curatedListItemModel.create({
+      curatedListId,
+      movieId: movie.id,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   fetchMovies,
   movieExistsInDB,
   addToWatchlist,
   addToWishlist,
+  addToCuratedlist,
 };

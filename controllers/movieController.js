@@ -1,8 +1,8 @@
 const {
   fetchMovies,
-  movieExistsInDB,
   addToWatchlist,
   addToWishlist,
+  addToCuratedlist,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -59,4 +59,30 @@ const saveMovieToWishlist = async (req, res) => {
   }
 };
 
-module.exports = { searchMovies, saveMovieToWatchlist, saveMovieToWishlist };
+const saveMovieToCuratedlist = async (req, res) => {
+  const { movieId, curatedListId } = req.body;
+  if (!movieId || !curatedListId)
+    return res
+      .status(400)
+      .json({ message: "Both movieId and curatedListId are required." });
+
+  try {
+    const curatedListItemEntry = await addToCuratedlist(movieId, curatedListId);
+    return res.status(201).json({
+      message: "Movie added to curatedlist successfully.",
+    });
+  } catch (error) {
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = {
+  searchMovies,
+  saveMovieToWatchlist,
+  saveMovieToWishlist,
+  saveMovieToCuratedlist,
+};

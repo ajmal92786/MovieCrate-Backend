@@ -4,6 +4,7 @@ const {
   addToWishlist,
   addToCuratedlist,
   storeReviewsAndRatings,
+  getMoviesByGenreAndActor,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -28,7 +29,7 @@ const saveMovieToWatchlist = async (req, res) => {
     return res.status(400).json({ message: "Movie ID is required." });
 
   try {
-    const watchlistEntry = await addToWatchlist(movieId);
+    await addToWatchlist(movieId);
     return res.status(201).json({
       message: "Movie added to watchlist successfully.",
     });
@@ -47,7 +48,7 @@ const saveMovieToWishlist = async (req, res) => {
     return res.status(400).json({ message: "Movie ID is required." });
 
   try {
-    const wishlistEntry = await addToWishlist(movieId);
+    await addToWishlist(movieId);
     return res.status(201).json({
       message: "Movie added to wishlist successfully.",
     });
@@ -68,7 +69,7 @@ const saveMovieToCuratedlist = async (req, res) => {
       .json({ message: "Both movieId and curatedListId are required." });
 
   try {
-    const curatedListItemEntry = await addToCuratedlist(movieId, curatedListId);
+    await addToCuratedlist(movieId, curatedListId);
     return res.status(201).json({
       message: "Movie added to curatedlist successfully.",
     });
@@ -85,20 +86,55 @@ const addReviewsAndRatings = async (req, res) => {
   const { movieId } = req.params;
   const { rating, reviewText } = req.body;
 
-  if (!movieId || !rating || !reviewText) {
-    return res
-      .status(400)
-      .json({ message: "Rating, review and movieId are required." });
+  if (
+    !movieId ||
+    !rating ||
+    typeof rating !== "number" ||
+    isNaN(rating) ||
+    rating < 0 ||
+    rating > 10 ||
+    !reviewText ||
+    typeof reviewText !== "string" ||
+    reviewText.length > 500
+  ) {
+    return res.status(400).json({
+      message:
+        "Valid movieId, rating (0-10), and reviewText (max 500 characters) are required.",
+    });
   }
 
   try {
-    const review = await storeReviewsAndRatings(movieId, rating, reviewText);
-    return res
-      .status(201)
-      .json({ message: "Review added successfully.", review });
+    await storeReviewsAndRatings(movieId, rating, reviewText);
+    return res.status(201).json({ message: "Review added successfully." });
   } catch (error) {
-    return res.status(500).json({
-      message: "Internal Server Error",
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
+const searchMoviesByGenreAndActor = async (req, res) => {
+  const genre = req.query.genre?.trim();
+  const actor = req.query.actor?.trim();
+
+  if (!genre || !actor) {
+    return res.status(400).json({ message: "Genre and actor are required." });
+  }
+
+  try {
+    const movies = await getMoviesByGenreAndActor(genre, actor);
+
+    if (movies.length === 0) {
+      return res.status(404).json({ message: "No movies found." });
+    }
+
+    return res.status(200).json({ movies });
+  } catch (error) {
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
       error: error.message,
     });
   }
@@ -110,4 +146,5 @@ module.exports = {
   saveMovieToWishlist,
   saveMovieToCuratedlist,
   addReviewsAndRatings,
+  searchMoviesByGenreAndActor,
 };

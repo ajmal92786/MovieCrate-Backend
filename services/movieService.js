@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const {
   movie: movieModel,
   watchlist: watchlistModel,
@@ -98,7 +99,7 @@ const fetchMovieAndCastDetails = async (tmdbId) => {
     return {
       title: movie.original_title,
       tmdbId: movie.id,
-      genre: movie.genres.map((g) => g.id).join(", "),
+      genre: movie.genres.map((g) => g.name).join(", "),
       actors,
       releaseYear: movie.release_date.split("-")[0] || null,
       rating: movie.vote_average,
@@ -219,10 +220,26 @@ const storeReviewsAndRatings = async (movieId, rating, reviewText) => {
   }
 };
 
+const getMoviesByGenreAndActor = async (genre, actor) => {
+  try {
+    const movies = await movieModel.findAll({
+      where: {
+        genre: { [Op.like]: `%${genre}%` },
+        actors: { [Op.like]: `%${actor}%` },
+      },
+    });
+
+    return movies;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   fetchMovies,
   addToWatchlist,
   addToWishlist,
   addToCuratedlist,
   storeReviewsAndRatings,
+  getMoviesByGenreAndActor,
 };

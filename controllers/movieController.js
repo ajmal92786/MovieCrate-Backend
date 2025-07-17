@@ -3,6 +3,7 @@ const {
   addToWatchlist,
   addToWishlist,
   addToCuratedlist,
+  storeReviewsAndRatings,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -80,9 +81,33 @@ const saveMovieToCuratedlist = async (req, res) => {
   }
 };
 
+const addReviewsAndRatings = async (req, res) => {
+  const { movieId } = req.params;
+  const { rating, reviewText } = req.body;
+
+  if (!movieId || !rating || !reviewText) {
+    return res
+      .status(400)
+      .json({ message: "Rating, review and movieId are required." });
+  }
+
+  try {
+    const review = await storeReviewsAndRatings(movieId, rating, reviewText);
+    return res
+      .status(201)
+      .json({ message: "Review added successfully.", review });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   searchMovies,
   saveMovieToWatchlist,
   saveMovieToWishlist,
   saveMovieToCuratedlist,
+  addReviewsAndRatings,
 };

@@ -4,6 +4,7 @@ const {
   wishlist: wishlistModel,
   curatedList: curatedListModel,
   curatedListItem: curatedListItemModel,
+  review: reviewModel,
 } = require("../models");
 const axios = require("axios");
 require("dotenv").config();
@@ -37,7 +38,7 @@ const getActors = async (movieId) => {
       `Error fetching actors for movieId ${movieId}`,
       error.message
     );
-    return "";
+    throw error;
   }
 };
 
@@ -110,34 +111,6 @@ const fetchMovieAndCastDetails = async (tmdbId) => {
     throw err;
   }
 };
-
-// const fetchMovieAndCastDetails = async (tmdbId) => {
-//   try {
-//     const [movieRes, actors] = await Promise.all([
-//       axios.get(`https://api.themoviedb.org/3/movie/${tmdbId}`, {
-//         params: { api_key: API_KEY },
-//       }),
-//       getActors(tmdbId),
-//     ]);
-
-//     const movie = movieRes.data;
-
-//     return {
-//       title: movie.original_title,
-//       tmdbId: movie.id,
-//       genre: movie.genres.map((g) => g.id).join(", "),
-//       actors,
-//       releaseYear: movie.release_date?.split("-")[0] || null,
-//       rating: movie.vote_average,
-//       description: movie.overview,
-//     };
-//   } catch (error) {
-//     const err = new Error("Movie not found in TMDB.");
-//     err.status = 404;
-//     err.customMessage = "Movie not found";
-//     throw err;
-//   }
-// };
 
 const addToWatchlist = async (movieId) => {
   try {
@@ -231,10 +204,25 @@ const addToCuratedlist = async (movieId, curatedListId) => {
   }
 };
 
+const storeReviewsAndRatings = async (movieId, rating, reviewText) => {
+  try {
+    // Check if movie exists in DB or fetch from TMDB
+    let movie = await movieExistsInDB(movieId);
+    if (!movie) {
+      const movieData = await fetchMovieAndCastDetails(movieId);
+      movie = await movieModel.create(movieData);
+    }
+
+    return await reviewModel.create({ movieId: movie.id, rating, reviewText });
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   fetchMovies,
-  movieExistsInDB,
   addToWatchlist,
   addToWishlist,
   addToCuratedlist,
+  storeReviewsAndRatings,
 };

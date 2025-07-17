@@ -2,7 +2,6 @@ const { curatedList: curatedListModel } = require("../models");
 
 const createNewCuratedList = async (data) => {
   try {
-    console.log(Object.keys(require("../models")));
     return await curatedListModel.create(data);
   } catch (error) {
     throw new Error(`Error in creating the list: ${error.message}`);
@@ -16,11 +15,11 @@ const updateCuratedListById = async (id, updatedData) => {
     error.statusCode = 404;
     throw error;
   }
-  // curatedList.name = data.name;
-  // curatedList.slug = data.slug;
-  // if (data.description) {
-  //   curatedList.description = data.description;
-  // }
+
+  // if (updatedData.name) curatedList.name = updatedData.name;
+  // if (updatedData.slug) curatedList.slug = updatedData.slug;
+  // if (updatedData.description) curatedList.description = updatedData.description;
+
   curatedList.set(updatedData);
   return await curatedList.save();
 };

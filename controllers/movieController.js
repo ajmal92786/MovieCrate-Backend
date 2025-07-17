@@ -6,6 +6,7 @@ const {
   storeReviewsAndRatings,
   getMoviesByGenreAndActor,
   sortMovies,
+  fetchTopFiveMoviesByRating,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -166,6 +167,23 @@ const sortMoviesByRatingOrYearOfRelease = async (req, res) => {
   }
 };
 
+const getTopFiveMovies = async (req, res) => {
+  try {
+    const movies = await fetchTopFiveMoviesByRating();
+    if (movies.length === 0) {
+      return res.status(404).json({ message: "No movies found." });
+    }
+
+    return res.status(200).json(movies);
+  } catch (error) {
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   searchMovies,
   saveMovieToWatchlist,
@@ -174,4 +192,5 @@ module.exports = {
   addReviewsAndRatings,
   searchMoviesByGenreAndActor,
   sortMoviesByRatingOrYearOfRelease,
+  getTopFiveMovies,
 };

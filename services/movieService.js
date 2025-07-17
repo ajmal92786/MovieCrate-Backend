@@ -275,6 +275,60 @@ const sortMovies = async (list, sortBy, order) => {
   }
 };
 
+const fetchTopFiveMoviesByRating = async () => {
+  try {
+    // const data = await movieModel.findAll({
+    //   attributes: ["title", "rating"],
+    //   order: [["rating", "DESC"]],
+    //   include: [{ model: reviewModel, attributes: ["reviewText"] }],
+    // });
+
+    // const movies = data.map((movieRecord) => {
+    //   return {
+    //     title: movieRecord.title,
+    //     rating: movieRecord.rating,
+    //     review: movieRecord.reviews.map((reviewRecord) => {
+    //       return {
+    //         text: reviewRecord.reviewText,
+    //         wordCount: reviewRecord.reviewText
+    //           ? reviewRecord.reviewText.split(" ").length
+    //           : 0,
+    //       };
+    //     }),
+    //   };
+    // });
+
+    const movies = await movieModel.findAll({
+      limit: 5,
+      attributes: ["title", "rating"],
+      order: [["rating", "DESC"]],
+      include: [
+        {
+          model: reviewModel,
+          attributes: ["reviewText"],
+          limit: 1, // only one review per movie
+        },
+      ],
+    });
+
+    return movies.map((movie) => {
+      const review = movie.reviews?.[0]; // only one review (due to limit: 1)
+      const reviewText = review?.reviewText || "";
+      const wordCount = reviewText.trim().split(/\s+/).filter(Boolean).length;
+      return {
+        title: movie.title,
+        rating: movie.rating,
+        review: {
+          text: reviewText,
+          wordCount,
+        },
+      };
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   fetchMovies,
   addToWatchlist,
@@ -283,4 +337,5 @@ module.exports = {
   storeReviewsAndRatings,
   getMoviesByGenreAndActor,
   sortMovies,
+  fetchTopFiveMoviesByRating,
 };

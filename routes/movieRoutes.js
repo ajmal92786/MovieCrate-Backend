@@ -7,6 +7,7 @@ const {
   addReviewsAndRatings,
   searchMoviesByGenreAndActor,
   sortMoviesByRatingOrYearOfRelease,
+  getTopFiveMovies,
 } = require("../controllers/movieController");
 
 const movieRoutes = Router();
@@ -18,5 +19,6 @@ movieRoutes.post("/curated-list", saveMovieToCuratedlist); // add movie to curat
 movieRoutes.post("/:movieId/reviews", addReviewsAndRatings); // add reviews and ratings to a movie
 movieRoutes.get("/searchByGenreAndActor", searchMoviesByGenreAndActor); // Search movies by Genre and Actor
 movieRoutes.get("/sort", sortMoviesByRatingOrYearOfRelease); // Sorting for the Watchlist, Wishlist, and CuratedLists by rating or year of release
+movieRoutes.get("/top5", getTopFiveMovies); // Get top 5 movies by rating + detailed review
 
 module.exports = { movieRoutes };

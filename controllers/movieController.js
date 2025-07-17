@@ -5,6 +5,7 @@ const {
   addToCuratedlist,
   storeReviewsAndRatings,
   getMoviesByGenreAndActor,
+  sortMovies,
 } = require("../services/movieService");
 
 const searchMovies = async (req, res) => {
@@ -140,6 +141,31 @@ const searchMoviesByGenreAndActor = async (req, res) => {
   }
 };
 
+const sortMoviesByRatingOrYearOfRelease = async (req, res) => {
+  const { list, sortBy, order = "ASC" } = req.query;
+  if (!list || !sortBy || !["rating", "releaseYear"].includes(sortBy)) {
+    return res.status(400).json({
+      message:
+        'Query params "list" and valid "sortBy" (rating, releaseYear) are required.',
+    });
+  }
+
+  try {
+    const movies = await sortMovies(list, sortBy, order);
+    if (movies.length === 0) {
+      return res.status(404).json({ message: `No movie found in ${list}` });
+    }
+
+    return res.status(200).json({ movies });
+  } catch (error) {
+    const status = error.status || 500;
+    return res.status(status).json({
+      message: error.customMessage || "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   searchMovies,
   saveMovieToWatchlist,
@@ -147,4 +173,5 @@ module.exports = {
   saveMovieToCuratedlist,
   addReviewsAndRatings,
   searchMoviesByGenreAndActor,
+  sortMoviesByRatingOrYearOfRelease,
 };

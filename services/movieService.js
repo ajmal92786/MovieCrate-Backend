@@ -224,12 +224,52 @@ const getMoviesByGenreAndActor = async (genre, actor) => {
   try {
     const movies = await movieModel.findAll({
       where: {
-        genre: { [Op.like]: `%${genre}%` },
-        actors: { [Op.like]: `%${actor}%` },
+        genre: { [Op.iLike]: `%${genre}%` },
+        actors: { [Op.iLike]: `%${actor}%` },
       },
     });
 
     return movies;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const sortMovies = async (list, sortBy, order) => {
+  const validLists = {
+    watchlist: watchlistModel,
+    wishlist: wishlistModel,
+    curatedlist: curatedListItemModel,
+  };
+
+  const Model = validLists[list.toLowerCase()];
+  if (!Model) {
+    const error = new Error("Invalid list type.");
+    error.status = 400;
+    throw error;
+  }
+
+  try {
+    const data = await Model.findAll({
+      include: [
+        {
+          model: movieModel,
+          attributes: [
+            "title",
+            "tmdbId",
+            "genre",
+            "actors",
+            "releaseYear",
+            "rating",
+          ],
+        },
+      ],
+      order: [
+        [movieModel, sortBy, order.toUpperCase() === "ASC" ? "ASC" : "DESC"],
+      ],
+    });
+
+    return data.map((record) => record.movie);
   } catch (error) {
     throw error;
   }
@@ -242,4 +282,5 @@ module.exports = {
   addToCuratedlist,
   storeReviewsAndRatings,
   getMoviesByGenreAndActor,
+  sortMovies,
 };

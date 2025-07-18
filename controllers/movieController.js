@@ -73,7 +73,7 @@ const saveMovieToCuratedlist = async (req, res) => {
   try {
     await addToCuratedlist(movieId, curatedListId);
     return res.status(201).json({
-      message: "Movie added to curatedlist successfully.",
+      message: "Movie added to curated list successfully.",
     });
   } catch (error) {
     const status = error.status || 500;

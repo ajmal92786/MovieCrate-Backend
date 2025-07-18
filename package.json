@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "This is a backend for movies, where user can search movies and add movies to watchlist, wishlist and curatedlist",
   "dependencies": {
     "axios": "^1.10.0",
     "dotenv": "^17.2.0",

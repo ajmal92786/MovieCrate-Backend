@@ -12,4 +12,4 @@ app.get("/", (req, res) => {
   res.send("Welcome to the MovieCraft App");
 });
 
-module.exports = { app };
+module.exports = app;

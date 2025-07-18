@@ -154,7 +154,7 @@ const sortMoviesByRatingOrYearOfRelease = async (req, res) => {
   try {
     const movies = await sortMovies(list, sortBy, order);
     if (movies.length === 0) {
-      return res.status(404).json({ message: `No movie found in ${list}` });
+      return res.status(404).json({ message: `No movies found in ${list}` });
     }
 
     return res.status(200).json({ movies });

@@ -1,15 +1,19 @@
+<p align="center">
+  <img src="./assets/moviecrate-banner.png" alt="MovieCrate Banner" />
+</p>
+
 # 🎬 MovieCrate – Your Personal Movie Management API
 
-[![Node.js](https://img.shields.io/badge/Node.js-16.x-green.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.x-green.svg)](https://nodejs.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supabase-blue)](https://supabase.io/)
 [![TMDB API](https://img.shields.io/badge/TMDB-API-orange)](https://developer.themoviedb.org/docs)
 [![Tests](https://img.shields.io/badge/Tested%20with-Jest%20&%20Supertest-blueviolet)](https://jestjs.io/)
 
-> A RESTful API built with Node.js, Express, Sequelize, and TMDB API to search, organize, and review movies.
+> A feature-rich backend service built with Node.js, Express, Sequelize, PostgreSQL (Supabase), and TMDB API to manage movies, reviews, watchlists, wishlist and curated movie collections.
 
 ---
 
-## 📌 Project Description
+## 🚀 Project Features
 
 **MovieCraft** is a feature-rich backend API that lets users:
 
@@ -27,28 +31,14 @@ This project follows a scalable MVC pattern and includes proper error handling, 
 
 ## 🛠️ Tech Stack
 
-| Tech           | Role                               |
-| -------------- | ---------------------------------- |
-| **Node.js**    | Runtime Environment                |
-| **Express.js** | Web framework                      |
-| **PostgreSQL** | Relational Database (via Supabase) |
-| **Sequelize**  | ORM for DB operations              |
-| **TMDB API**   | For movie data and metadata        |
-| **Jest**       | Unit testing                       |
-| **Supertest**  | API integration testing            |
-| **Dotenv**     | Environment config                 |
-
----
-
-## 🧪 Features
-
-- ✅ Real-time Movie Search from TMDB
-- 📌 Add movies to `Watchlist`, `Wishlist`, or `Curated Lists`
-- ✍️ Add `Reviews` and `Ratings`
-- 🎭 Search by `Genre + Actor`
-- 🔃 Sort by `Rating` or `Release Year`
-- 🏆 Get `Top 5 Movies` with best ratings
-- 🧪 Fully tested API routes and services using Jest & Supertest
+- **Node.js**, **Express.js**
+- **PostgreSQL** via **Supabase**
+- **Sequelize ORM** for DB operations
+- **TMDB API** for movie data
+- **Jest** Unit testing
+- **Supertest** for API integration testing
+- **Dotenv** for Environment config
+- **MVC Architecture**
 
 ---
 
@@ -56,6 +46,9 @@ This project follows a scalable MVC pattern and includes proper error handling, 
 
 ```
 
+├── config/
+│   └── config.js
+├── migrations/
 ├── controllers/
 │   └── movieController.js
 │   └── curatedListController.js
@@ -70,6 +63,7 @@ This project follows a scalable MVC pattern and includes proper error handling, 
 ├── utils/
 │   └── utils.js
 ├── .env
+├── .gitignore
 ├── index.js
 
 ```
@@ -93,11 +87,15 @@ npm install
 
 ### 3️⃣ Set Environment Variables
 
-Create a `.env` file in the root:
+Create a .env file in your root directory with the following:
 
 ```env
-TMDB_API_KEY=your_tmdb_api_key_here
+PORT=4000
+DATABASE_URL=your_supabase_database_url
+TMDB_API_KEY=your_tmdb_api_key
 ```
+
+📁 Also provide a .env.example for contributors.
 
 You can get a TMDB key from: [https://developer.themoviedb.org/docs](https://developer.themoviedb.org/docs)
 
@@ -121,7 +119,7 @@ npx sequelize-cli db:migrate
 npm start
 ```
 
-Server will run on: `http://localhost:3000`
+Server will run on: `http://localhost:4000`
 
 ---
 
@@ -129,75 +127,23 @@ Server will run on: `http://localhost:3000`
 
 ### 🎥 `/api/movies`
 
-| Method | Route                       | Description                         |
-| ------ | --------------------------- | ----------------------------------- |
-| GET    | `/search?query=...`         | Search movies via TMDB              |
-| POST   | `/watchlist`                | Add movie to watchlist              |
-| POST   | `/wishlist`                 | Add movie to wishlist               |
-| POST   | `/curated-list`             | Add movie to curated list           |
-| POST   | `/:movieId/reviews`         | Add a review and rating             |
-| GET    | `/searchByGenreAndActor`    | Search by genre and actor           |
-| GET    | `/sort?list=...&sortBy=...` | Sort watchlist/wishlist/curatedlist |
-| GET    | `/top5`                     | Get top 5 movies with reviews       |
+| Method | Route                                  | Description                         |
+| ------ | -------------------------------------- | ----------------------------------- |
+| GET    | `/api/movies/search?query=...`         | Search movies via TMDB              |
+| POST   | `/api/movies/watchlist`                | Add movie to watchlist              |
+| POST   | `/api/movies/wishlist`                 | Add movie to wishlist               |
+| POST   | `/api/movies/curated-list`             | Add movie to curated list           |
+| POST   | `/api/movies/:movieId/reviews`         | Add a review and rating             |
+| GET    | `/api/movies/searchByGenreAndActor`    | Search by genre and actor           |
+| GET    | `/api/movies/sort?list=...&sortBy=...` | Sort watchlist/wishlist/curatedlist |
+| GET    | `/api/movies/top5`                     | Get top 5 movies with reviews       |
 
 ### 📑 `/api/curated-lists`
 
-| Method | Route             | Description                   |
-| ------ | ----------------- | ----------------------------- |
-| POST   | `/`               | Create a curated list         |
-| PUT    | `/:curatedListId` | Update curated list name/desc |
-
----
-
-## 🧪 Testing
-
-> Run all tests using:
-
-```bash
-npm test
-```
-
-Includes:
-
-- ✅ Watchlist/Wishlist/CuratedList API testing
-- ✅ Curated list creation & update
-- ✅ TMDB movie integration
-- ✅ Validation & error response testing
-
----
-
-## 🌟 Highlights
-
-- Clean MVC architecture
-- Full integration with a third-party API
-- Sequelize model associations
-- Test-driven development
-- Real-world use case (like Letterboxd / Netflix backend)
-
----
-
-## 📸 Screenshots (Optional)
-
-> Add Postman screenshots or terminal test output here for visual proof.
-
----
-
-## 🙋‍♂️ About Me
-
-Hi, I’m **Mohd Ajmal Raza** – a backend developer passionate about building real-world APIs and solving problems with Node.js & PostgreSQL.
-Connect with me on [LinkedIn](https://www.linkedin.com/in/mohd-ajmal-raza) or check out my [Portfolio](https://yourportfolio.com)
-
----
-
-## 📮 Feedback & Contributions
-
-Feel free to raise issues, suggest features, or fork the project. I'm actively improving it. 😊
-
----
-
-## 📜 License
-
-This project is open-source and free to use under the [MIT License](LICENSE).
+| Method | Route                               | Description                   |
+| ------ | ----------------------------------- | ----------------------------- |
+| POST   | `/api/curated-lists/`               | Create a curated list         |
+| PUT    | `/api/curated-lists/:curatedListId` | Update curated list name/desc |
 
 ---
 
@@ -217,10 +163,72 @@ MovieCrate is live and accessible at:
 You can test all API endpoints using the Postman collection below:
 
 📁 **Postman Link:**
-[📨 MovieCrate API – Postman Collection](https://www.postman.com/collections/XXXXXXXXXX)
+[📨 MovieCrate API – Postman Collection](./docs/MovieCrate-Backend.postman_collection.json)
 
 > _(Click to import in your Postman and explore all routes)_
 
 > Tip: Use the base URL set as an environment variable in Postman for quick switching between local and production versions.
+
+---
+
+## 🧪 Testing
+
+> Run all tests using:
+
+```bash
+npm run test
+```
+
+Includes:
+
+- ✅ Route Integration Tests
+- ✅ Controller Tests
+- ✅ Service Tests
+- ✅ Validation Tests
+
+---
+
+## 🌟 Highlights
+
+- Clean MVC architecture
+- Full integration with a third-party API
+- Sequelize model associations
+- Test-driven development
+- Real-world use case (like Letterboxd / Netflix backend)
+
+---
+
+## 📸 Screenshots (Optional)
+
+> Add Postman screenshots or terminal test output here for visual proof.
+
+---
+
+<!-- ## 🙋‍♂️ About Me
+
+Hi, I’m **Mohd Ajmal Raza** – a backend developer passionate about building real-world APIs and solving problems with Node.js & PostgreSQL.
+Connect with me on [LinkedIn](https://www.linkedin.com/in/mohd-ajmal-raza) or check out my [Portfolio](https://yourportfolio.com)
+-->
+
+## 🧑‍💻 Author
+
+Made with 💚 by [**Mohd Ajmal Raza**](https://www.linkedin.com/in/mohd-ajmal-raza)
+
+<!--* 🌐 Portfolio: [your-portfolio-link.com](https://your-portfolio-link.com) -->
+
+- 🐙 GitHub: [@ajmal92786](https://github.com/ajmal92786)
+- 📧 Email: [ajmalbly27@gmail.com](mailto:ajmalbly27@gmail.com)
+
+---
+
+## 📮 Feedback & Contributions
+
+Feel free to raise issues, suggest features, or fork the project. I'm actively improving it. 😊
+
+---
+
+## 📜 License
+
+This project is open-source and free to use under the [MIT License](LICENSE).
 
 ---

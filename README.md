@@ -9,6 +9,24 @@
 
 ---
 
+<!--
+## 📚 Table of Contents
+
+- [🚀 Project Features](#-project-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Folder Structure](#-folder-structure)
+- [🧑‍💻 Setup Instructions](#-setup-instructions)
+- [📬 API Endpoints](#-api-endpoints)
+- [🚀 Deployment](#-deployment)
+- [📬 Postman Collection](#-postman-collection)
+- [🧪 Testing](#-testing)
+- [🌟 Highlights](#-highlights)
+- [📸 Screenshots](#-screenshots)
+- [🧑‍💻 Author](#-author)
+- [📮 Feedback & Contributions](#-feedback--contributions)
+- [📜 License](#-license)
+-->
+
 ## 🚀 Project Features
 
 **MovieCraft** is a feature-rich backend API that lets users:
@@ -194,7 +212,7 @@ Includes:
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots
 
 <img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/b24d2900-abb5-4d23-b749-89975d9eb119" />
 <img width="1366" height="727" alt="image" src="https://github.com/user-attachments/assets/8f12572a-d32a-4c6e-98a7-4d3f6c8b436d" />

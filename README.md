@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./assets/moviecrate-banner.png" alt="MovieCrate Banner" />
-</p>
-
 # 🎬 MovieCrate – Your Personal Movie Management API
 
 [![Node.js](https://img.shields.io/badge/Node.js-22.x-green.svg)](https://nodejs.org/)
@@ -200,7 +196,12 @@ Includes:
 
 ## 📸 Screenshots (Optional)
 
-> Add Postman screenshots or terminal test output here for visual proof.
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/b24d2900-abb5-4d23-b749-89975d9eb119" />
+<img width="1366" height="727" alt="image" src="https://github.com/user-attachments/assets/8f12572a-d32a-4c6e-98a7-4d3f6c8b436d" />
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/7d92dcf9-b085-4d57-b998-d0075c9f28f0" />
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/d757f684-5a3c-46e3-b25c-fb51e1aaa4f9" />
+<img width="1366" height="730" alt="image" src="https://github.com/user-attachments/assets/949680fd-55ef-4442-a3c2-d37db174afe1" />
+<img width="1366" height="732" alt="image" src="https://github.com/user-attachments/assets/6356f572-59f9-41a5-a512-480fe0ef5bfc" />
 
 ---
 
@@ -230,5 +231,11 @@ Feel free to raise issues, suggest features, or fork the project. I'm actively i
 ## 📜 License
 
 This project is open-source and free to use under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  <img src="./assets/moviecrate-banner.png" alt="MovieCrate Banner" />
+</p>
 
 ---

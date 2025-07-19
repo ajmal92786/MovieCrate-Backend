@@ -1,0 +1,968 @@
+{
+	"info": {
+		"_postman_id": "e0664ea3-baa2-44e3-8b7a-61bc2f478343",
+		"name": "MovieCrate-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41270685"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/api/movies/search?query=Inception",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movies/search?query=Inception",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Inception"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Movies By Query - 200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/movies/search?query=Inception",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Inception"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3946"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f6a-4w1/mCI0zDHfjkPkOlZYQFKGK9w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 10:12:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"movies\": [\n        {\n            \"title\": \"Inception\",\n            \"tmdbId\": 27205,\n            \"genre\": \"28, 878, 12\",\n            \"actors\": \"Leonardo DiCaprio, Joseph Gordon-Levitt, Ken Watanabe, Tom Hardy, Elliot Page\",\n            \"releaseYear\": \"2010\",\n            \"rating\": 8.369,\n            \"description\": \"Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \\\"inception\\\", the implantation of another person's idea into a target's subconscious.\"\n        },\n        {\n            \"title\": \"El crack cero\",\n            \"tmdbId\": 613092,\n            \"genre\": \"18, 53\",\n            \"actors\": \"Carlos Santos, Miguel Ángel Muñoz, Luisa Gavasa, María Cantuel, Macarena Gómez\",\n            \"releaseYear\": \"2019\",\n            \"rating\": 6.7,\n            \"description\": \"Madrid, Spain, 1975; shortly after the end of the Franco dictatorship. Six months after the mysterious death of his lover, a prestigious tailor, a married woman visits the office of the young Germán Areta, a former police officer turned private detective, to request his professional services.\"\n        },\n        {\n            \"title\": \"Inception: The Cobol Job\",\n            \"tmdbId\": 64956,\n            \"genre\": \"16, 28, 53, 878\",\n            \"actors\": \"\",\n            \"releaseYear\": \"2010\",\n            \"rating\": 7.247,\n            \"description\": \"This \\\"Inception\\\" prequel unfolds courtesy of a beautiful Motion Comic, and explains how Cobb, Arthur and Nash were enlisted by Cobol Engineering.\"\n        },\n        {\n            \"title\": \"Sindrom Halla, začetak hrvatskog profesionalnog filma – rođenog da umre\",\n            \"tmdbId\": 1370380,\n            \"genre\": \"99, 18\",\n            \"actors\": \"Relja Bašić, Ena Begović, Alen Liverić, Darko Rundek, Božidar Orešković\",\n            \"releaseYear\": \"2017\",\n            \"rating\": 0,\n            \"description\": \"One hundred years after the invention of film, Croatian film icon Mr. Fulir, who serves as the author’s alter-ego, comes up with the Faustian idea to bring back his youth. With a group of famous actors, he enthusiastically attempts to remake lost Croatian films from the silent era.\"\n        },\n        {\n            \"title\": \"Nātyārambham\",\n            \"tmdbId\": 350632,\n            \"genre\": \"\",\n            \"actors\": \"Anjali Nandan\",\n            \"releaseYear\": \"\",\n            \"rating\": 5.8,\n            \"description\": \"On certain Adavus: the basic steps in Bharatanatyam. The first part covers Tatta Adavu, Natta Adavu, Visharu Adavu , Tatti Metti Adavu and Teermanam Adavu.\"\n        },\n        {\n            \"title\": \"Эхлэл\",\n            \"tmdbId\": 1359046,\n            \"genre\": \"18\",\n            \"actors\": \"Jamsranjav Lool, Sukhbaatar Davaa, Elbegsaikhan Dagva-Ochir, Myatavyn Badamgarav, Luvsan Luvsanbaldan\",\n            \"releaseYear\": \"1980\",\n            \"rating\": 0,\n            \"description\": \"This film shows how ordinary people work to build the Erdenet factory, and how the finished product becomes the result of collective labor, and tells about the friendship of workers from Mongolia.\"\n        },\n        {\n            \"title\": \"Inception: Music from the Motion Picture\",\n            \"tmdbId\": 973484,\n            \"genre\": \"10402\",\n            \"actors\": \"\",\n            \"releaseYear\": \"2010\",\n            \"rating\": 6,\n            \"description\": \"The Special Features Blu-ray disc contains a lossless DTS-HD MA 5.1 surround mix of the Inception soundtrack.\"\n        },\n        {\n            \"title\": \"WWA The Inception\",\n            \"tmdbId\": 250845,\n            \"genre\": \"\",\n            \"actors\": \"Jeffrey Jarrett, Bret Hart, Brian James, Charles Ashenoff, Glenn Gilbertti\",\n            \"releaseYear\": \"2001\",\n            \"rating\": 3.1,\n            \"description\": \"The first World Wrestling Allstars pay per view, live from Sydney, Australia! A tournament titled \\\"7 Deadly Sins\\\", each round having a stipulation match, the winner will be crowned the first ever WWA Heavyweight Champion! Wrestlers such as Jeff Jarrett, Road Dogg, Jerry Lawler all compete in the tournament, with the WWA Commissioner, Bret Hart not too far away to make sure nothing gets to far out of hand!\"\n        },\n        {\n            \"title\": \"Bikini Inception\",\n            \"tmdbId\": 542438,\n            \"genre\": \"35\",\n            \"actors\": \"Paizley Bishop, Shelly Desai, Ana Flavia Gavlak, Joe Estevez, Michael Madsen\",\n            \"releaseYear\": \"2015\",\n            \"rating\": 4,\n            \"description\": \"Two flunky Janitors in an Arctic Lab perform unauthorized experiments transporting them to a beach dream world in Malibu California w/50 beautiful young girls and a female Brazilian PhD Student wearing only a bra and panties. A '67 Muscle car races chases horses guns fights surfing, sumo wrestler, wolf monster, underwater scenes tons of gorgeous models. Sexy sci-fi fun.\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/curated-lists",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Drama Movies\",\r\n  \"description\": \"A collection of the bollywood drama films.\",\r\n  \"slug\": \"drama-movies\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/curated-lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"curated-lists"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Curated List - 201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Drama Movies\",\r\n  \"description\": \"A collection of the bollywood drama films.\",\r\n  \"slug\": \"drama-movies\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/curated-lists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"curated-lists"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-yQ8WEqa8VcgCRr9M49cHQsn3WrA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 11:59:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Curated list created successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/curated-lists/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Updated Comedy Movies\",\r\n  \"description\": \"Updated description.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/curated-lists/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"curated-lists",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Curated List By ID - 200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Comedy Movies\",\r\n  \"description\": \"Updated description.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/curated-lists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"curated-lists",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "248"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f8-3ksUsKzz0NLygfbNOsFXYH64t2w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:01:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Curated list updated successfully.\",\n    \"curatedList\": {\n        \"id\": 1,\n        \"name\": \"Updated Comedy Movies\",\n        \"slug\": \"updated-comedy-movies\",\n        \"description\": \"Updated description.\",\n        \"createdAt\": \"2025-07-18T13:35:32.978Z\",\n        \"updatedAt\": \"2025-07-19T12:01:55.203Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/watchlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"movieId\": 27211\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movies/watchlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"watchlist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Movie Add To Watchlist -  201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": 27211\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/movies/watchlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"watchlist"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-zo/AzAKyh/cBm0TkQxz0FD3fqTk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:03:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Movie added to watchlist successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/wishlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"movieId\": 27212\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movies/wishlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"wishlist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Movie Add To Wishlist - 201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": 27212\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/movies/wishlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"wishlist"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-v3o9hmIdV2QYK9m/PUm9vktANbc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:05:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Movie added to wishlist successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/curated-list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"movieId\": 27209,\r\n  \"curatedListId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movies/curated-list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"curated-list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Movie Add To Curated List - 201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": 27209,\r\n  \"curatedListId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/movies/curated-list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"curated-list"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-6C6gFAMqcjLQUGnZFHxOqN6G01c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:06:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Movie added to curated list successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/27205/reviews",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rating\": 4.5,\r\n  \"reviewText\": \"Great movie with a brilliant plot.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movies/27205/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"27205",
+						"reviews"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Review Add To Movie By ID - 201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 3.6,\r\n  \"reviewText\": \"GOod movie with a simple plot.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/movies/27209/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"27209",
+								"reviews"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"28-uvfTDjAqZIg1ALeqw5KKeiGF3uM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:08:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Review added successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/searchByGenreAndActor?genre=Drama&actor=Tania Simon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movies/searchByGenreAndActor?genre=Drama&actor=Tania Simon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"searchByGenreAndActor"
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "Drama"
+						},
+						{
+							"key": "actor",
+							"value": "Tania Simon"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Movie by Genre and Actor - 200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/movies/searchByGenreAndActor?genre=Drama&actor=Tania Simon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"searchByGenreAndActor"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "Drama"
+								},
+								{
+									"key": "actor",
+									"value": "Tania Simon"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "636"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27c-CNXkYZABDwzc0pbyruOz1upTO5I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:09:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"movies\": [\n        {\n            \"id\": 3,\n            \"title\": \"Peach\",\n            \"tmdbId\": 27209,\n            \"genre\": \"Drama\",\n            \"actors\": \"Lucy Lawless, Tania Simon, Joel Tobeck, Don Selwyn, Virginia Brocklehurst\",\n            \"releaseYear\": 1996,\n            \"rating\": 6.5,\n            \"description\": \"Lucy Lawless stars in this short which predated her rise to fame as Xena Princess Warrior. Sal is in a relationship going nowhere with Mog, a layabout who shows her no respect. A chance encounter with an easy-going female truck driver (Lawless) encourages Sal to take more chances in her life, symbolized by the purchase of a tasty but out-of-season peach.\",\n            \"createdAt\": \"2025-07-18T13:47:21.838Z\",\n            \"updatedAt\": \"2025-07-18T13:47:21.838Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/sort?list=wishlist&sortBy=releaseYear&order=DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movies/sort?list=wishlist&sortBy=releaseYear&order=DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "list",
+							"value": "wishlist"
+						},
+						{
+							"key": "sortBy",
+							"value": "releaseYear"
+						},
+						{
+							"key": "order",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sort Movies - 200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/movies/sort?list=wishlist&sortBy=releaseYear&order=DESC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"sort"
+							],
+							"query": [
+								{
+									"key": "list",
+									"value": "wishlist"
+								},
+								{
+									"key": "sortBy",
+									"value": "releaseYear"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "340"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"154-1SPNyhAp0e5Ot24BWXh2ab7JQe4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:10:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"movies\": [\n        {\n            \"title\": \"Josh Groban - Awake Live\",\n            \"tmdbId\": 27210,\n            \"genre\": \"Music\",\n            \"actors\": \"Darren Norris, Josh Groban\",\n            \"releaseYear\": 2008,\n            \"rating\": 8\n        },\n        {\n            \"title\": \"A Bullet for Joey\",\n            \"tmdbId\": 27212,\n            \"genre\": \"Crime, Thriller\",\n            \"actors\": \"Edward G. Robinson, George Raft, Audrey Totter, George Dolenz, Peter van Eyck\",\n            \"releaseYear\": 1955,\n            \"rating\": 5.6\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:4000/api/movies/top5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movies/top5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movies",
+						"top5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Top Five Movies - 200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/movies/top5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"movies",
+								"top5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "439"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b7-aY1INXKdvADCXEWelfxd9emG8VE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Jul 2025 12:11:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"Inception\",\n        \"rating\": 8.369,\n        \"review\": {\n            \"text\": \"Great movie with a brilliant plot.\",\n            \"wordCount\": 6\n        }\n    },\n    {\n        \"title\": \"Josh Groban - Awake Live\",\n        \"rating\": 8,\n        \"review\": {\n            \"text\": \"\",\n            \"wordCount\": 0\n        }\n    },\n    {\n        \"title\": \"Kibar Feyzo\",\n        \"rating\": 7.871,\n        \"review\": {\n            \"text\": \"\",\n            \"wordCount\": 0\n        }\n    },\n    {\n        \"title\": \"Un lever de rideau\",\n        \"rating\": 6.5,\n        \"review\": {\n            \"text\": \"\",\n            \"wordCount\": 0\n        }\n    },\n    {\n        \"title\": \"Peach\",\n        \"rating\": 6.5,\n        \"review\": {\n            \"text\": \"GOod movie with a simple plot.\",\n            \"wordCount\": 6\n        }\n    }\n]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:4000",
+			"type": "default"
+		},
+		{
+			"key": "baseURL",
+			"value": "http://localhost:4000",
+			"type": "default"
+		},
+		{
+			"key": "baseURL",
+			"value": "http://localhost:4000",
+			"type": "default"
+		}
+	]
+}
